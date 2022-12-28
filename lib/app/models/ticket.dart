@@ -95,6 +95,7 @@ class Room {
   String? updatedAt;
   Category? category;
   List<Bookmar>? bookmar;
+  List<Reviews>? reviews;
 
   Room(
       {this.id,
@@ -107,7 +108,8 @@ class Room {
       this.createdAt,
       this.updatedAt,
       this.category,
-      this.bookmar});
+      this.bookmar,
+      this.reviews});
 
   Room.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -124,6 +126,12 @@ class Room {
       bookmar = <Bookmar>[];
       json['bookmar'].forEach((v) {
         bookmar!.add(new Bookmar.fromJson(v));
+      });
+    }
+    if (json['reviews'] != null) {
+      reviews = <Reviews>[];
+      json['reviews'].forEach((v) {
+        reviews!.add(new Reviews.fromJson(v));
       });
     }
   }
@@ -144,6 +152,9 @@ class Room {
     }
     if (this.bookmar != null) {
       data['bookmar'] = this.bookmar!.map((v) => v.toJson()).toList();
+    }
+    if (this.reviews != null) {
+      data['reviews'] = this.reviews!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -205,6 +216,46 @@ class Bookmar {
   }
 }
 
+class Reviews {
+  int? id;
+  int? userId;
+  int? roomId;
+  String? description;
+  int? rating;
+  String? createdAt;
+  String? updatedAt;
+  User? user;
+
+  Reviews(
+      {this.id, this.userId, this.roomId, this.description, this.rating, this.createdAt, this.updatedAt, this.user});
+
+  Reviews.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    userId = json['user_id'];
+    roomId = json['room_id'];
+    description = json['description'];
+    rating = json['rating'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['user_id'] = this.userId;
+    data['room_id'] = this.roomId;
+    data['description'] = this.description;
+    data['rating'] = this.rating;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    if (this.user != null) {
+      data['user'] = this.user!.toJson();
+    }
+    return data;
+  }
+}
+
 class User {
   int? id;
   String? name;
@@ -245,11 +296,11 @@ class Profiles {
   int? id;
   int? userId;
   String? image;
-  Null? nik;
-  Null? address;
-  Null? gender;
-  Null? job;
-  Null? phone;
+  String? birthday;
+  String? address;
+  String? gender;
+  String? job;
+  String? phone;
   String? createdAt;
   String? updatedAt;
 
@@ -257,7 +308,7 @@ class Profiles {
       {this.id,
       this.userId,
       this.image,
-      this.nik,
+      this.birthday,
       this.address,
       this.gender,
       this.job,
@@ -269,7 +320,7 @@ class Profiles {
     id = json['id'];
     userId = json['user_id'];
     image = json['image'];
-    nik = json['nik'];
+    birthday = json['birthday'];
     address = json['address'];
     gender = json['gender'];
     job = json['job'];
@@ -283,7 +334,7 @@ class Profiles {
     data['id'] = this.id;
     data['user_id'] = this.userId;
     data['image'] = this.image;
-    data['nik'] = this.nik;
+    data['birthday'] = this.birthday;
     data['address'] = this.address;
     data['gender'] = this.gender;
     data['job'] = this.job;

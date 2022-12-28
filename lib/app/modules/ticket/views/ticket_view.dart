@@ -15,7 +15,6 @@ class TicketView extends GetView<TicketController> {
 
   @override
   Widget build(BuildContext context) {
-    print(id);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

@@ -242,11 +242,11 @@ class Profiles {
   int? id;
   int? userId;
   String? image;
-  Null? nik;
-  Null? address;
-  Null? gender;
-  Null? job;
-  Null? phone;
+  String? birthday;
+  String? address;
+  String? gender;
+  String? job;
+  String? phone;
   String? createdAt;
   String? updatedAt;
 
@@ -254,7 +254,7 @@ class Profiles {
       {this.id,
       this.userId,
       this.image,
-      this.nik,
+      this.birthday,
       this.address,
       this.gender,
       this.job,
@@ -266,7 +266,7 @@ class Profiles {
     id = json['id'];
     userId = json['user_id'];
     image = json['image'];
-    nik = json['nik'];
+    birthday = json['birthday'];
     address = json['address'];
     gender = json['gender'];
     job = json['job'];
@@ -280,7 +280,7 @@ class Profiles {
     data['id'] = this.id;
     data['user_id'] = this.userId;
     data['image'] = this.image;
-    data['nik'] = this.nik;
+    data['birthday'] = this.birthday;
     data['address'] = this.address;
     data['gender'] = this.gender;
     data['job'] = this.job;

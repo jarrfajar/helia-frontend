@@ -9,6 +9,7 @@ import 'package:helia/app/models/booking.dart';
 import 'package:helia/app/reusable/NavagationBar.dart';
 import 'package:helia/app/reusable/bottomsheet.dart';
 import 'package:helia/app/reusable/tabbar.dart';
+import 'package:helia/app/routes/app_pages.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../controllers/my_booking_controller.dart';
@@ -254,7 +255,7 @@ class MyBookingView extends GetView<MyBookingController> {
                                                   borderRadius: BorderRadius.circular(50),
                                                 ),
                                               ),
-                                              onPressed: () {},
+                                              onPressed: () => Get.toNamed(Routes.TICKET, arguments: booking.id!),
                                               child: const Text("View Ticket"),
                                             ),
                                           ),
