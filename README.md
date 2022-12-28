@@ -17,7 +17,7 @@ Figma By Sobakhul Munir Siroj
 1. Clone the repo
 
    ```bash
-   git clone https://github.com/jarrfajar/hamo-frontend
+   git clone https://github.com/jarrfajar/helia-frontend
    ```
 2. Install packages
 
